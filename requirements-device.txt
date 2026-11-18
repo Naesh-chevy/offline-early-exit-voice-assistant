@@ -1,0 +1,11 @@
+# raspberry pi, only finished tflite models + glue
+numpy
+pyyaml
+psutil
+ai-edge-litert
+paho-mqtt
+sounddevice
+gpiozero
+lgpio
+smbus2
+RPi.bme280

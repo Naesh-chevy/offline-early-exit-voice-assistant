@@ -1,0 +1,32 @@
+# target is one of pi5, pi4, android
+target: pi4
+os: raspberry pi os 64 bit
+n_threads: 4          # pi4 has 4 cores, pin tflite to this
+governor: performance # we log what the governor really is, this is just what we ask for
+
+mic:
+  device_index: null  # null = system default
+  sample_rate: 16000
+  ring_seconds: 2.0
+  frame_ms: 30
+  vad_energy_thresh: 0.01   # rms, float audio in [-1, 1]
+  vad_hangover_frames: 10
+
+actuators:
+  transport: mqtt     # mqtt or ble
+  mqtt:
+    host: localhost
+    port: 1883
+    topic_prefix: home
+  gpio:               # BCM numbers
+    led_pin: 18       # pwm out to the mosfet
+    servo_pin: 12
+    heater_led_pin: 23
+    marker_pin: 24    # goes high during inference, the energy logger watches this
+    i2c_bus: 1
+    bme280_addr: 0x76
+
+energy:
+  ina226_enabled: false   # flip to true once the logger is wired
+  ina226_addr: 0x40
+  shunt_ohms: 0.1

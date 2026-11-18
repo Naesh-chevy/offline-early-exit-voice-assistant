@@ -1,0 +1,25 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/raw/
+data/prepared/
+data/own/
+checkpoints/
+*.pt
+*.ckpt
+export/*.tflite
+results/*/*.npy
+
+# colab outputs and exported models, too big for git
+gpu_package/out/
+gpu_package/*.zip
+/export/
+results/colab_logs/
+*.tflite
+*.npz
+*.wav
+*.docx~
+gpu_package/data_files/
+docs/Project_Status_and_Training_Guide.docx
+CLAUDE.md

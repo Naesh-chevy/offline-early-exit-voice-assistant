@@ -1,0 +1,13 @@
+# laptop / test setup, runs `pytest -m "not device and not gpu"`
+numpy
+pyyaml
+pytest
+tqdm
+psutil
+torch
+tensorflow
+transformers
+soundfile
+paho-mqtt
+ai-edge-litert
+sounddevice

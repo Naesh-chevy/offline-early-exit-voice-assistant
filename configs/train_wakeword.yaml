@@ -1,0 +1,36 @@
+seed: 0
+wake_word: marvin     # one word from speech commands v2, everything else is "other"
+data_dir: data/raw/speech_commands_v2
+noise_dir: data/raw/speech_commands_v2/_background_noise_
+
+audio:
+  sample_rate: 16000
+  window_s: 1.0
+  n_mels: 80
+  n_fft: 400
+  hop: 160
+
+model:
+  widths: [64, 64, 64, 64]   # ds blocks, check param count test (< 100k)
+  first_kernel: [10, 4]
+  first_stride: [2, 2]
+  max_params: 100000
+
+train:
+  epochs: 30
+  batch_size: 128
+  lr: 0.002
+  qat_epochs: 8
+  noise_prob: 0.8
+  noise_gain_max: 0.3
+  other_per_wake: 6      # how many non wake clips per wake clip
+  noise_neg_frac: 0.25   # extra noise only / silence negatives, as a fraction of the clips above
+
+eval:
+  threshold: 0.5
+  fa_noise_hours: 1.0    # how much background noise to slide over for false accepts per hour
+
+out:
+  ckpt: checkpoints/wakeword_fp32.pt
+  qat_ckpt: checkpoints/wakeword_qat.pt
+  tflite: export/wakeword_int8.tflite

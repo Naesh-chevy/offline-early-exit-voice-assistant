@@ -1,0 +1,4 @@
+-r requirements.txt
+# GPU box (colab / unity), install the cuda build of torch for your machine
+tensorflow-model-optimization
+datasets

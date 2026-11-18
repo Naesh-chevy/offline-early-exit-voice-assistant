@@ -1,0 +1,71 @@
+seed: 0
+fsc_dir: data/raw/fsc
+prepared_dir: data/prepared
+
+audio:
+  sample_rate: 16000
+  window_s: 4.0       # whisper wants 30s, we crop to 4s
+  n_mels: 80
+  n_fft: 400
+  hop: 160
+
+student:              # whisper tiny encoder
+  d_model: 384
+  n_layers: 4
+  n_heads: 6
+  ffn: 1536
+  init_from: openai/whisper-tiny
+
+teacher:              # whisper base, finetuned on fsc first
+  d_model: 512
+  n_layers: 6
+  n_heads: 8
+  ffn: 2048
+  init_from: openai/whisper-base
+  ckpt: checkpoints/teacher_base_fsc.pt
+
+heads:
+  exits: [2, 3, 4]     # encoder layers that have an exit
+  n_action: 6          # fsc: activate, bring, change language, deactivate, decrease, increase
+  n_object: 14
+  n_location: 4
+  slot_bins: 15        # setpoint 16..30 C as classes
+  head_hidden: 256
+
+distill:
+  temperature: 2.0
+  alpha_task: 1.0
+  alpha_kd: 1.0
+  alpha_feat: 0.5
+  teacher_layer_map: [2, 4, 6]   # student layers 2,3,4 match these teacher layers
+
+loss:
+  reject_cost: 1.0
+  continue_cost: 0.2            # price of running one more segment, so early exit is only taken when confident
+  lambda_sweep: [1, 2, 5, 10]
+  exit_weights: [0.3, 0.3, 0.4]
+  early_distill_weight: 0.5     # last exit teaches the earlier ones
+  decision_weight: 1.0
+
+policy:
+  # thresholds on the decision head probs, tuned on val in the exit ablation
+  act_thresh: [0.9, 0.85, 0.5]
+  reject_thresh: [0.9, 0.9, 0.5]
+
+quads:                # prior method reproduction (src/baselines/quads.py)
+  schedule: dqdqdqq   # d = distill epoch, q = k-means quantization epoch, ends with quantization only
+  l1_weight: 0.1      # paper does not give alpha, their repo uses 1e-6 (almost no distillation), this one is ours
+  enc_lr: 0.00001     # same as their repo
+  head_lr: 0.001      # same as their repo
+  quant_lr: 0.01      # sgd with momentum and cosine decay, same as their repo
+
+train:
+  epochs: 20
+  batch_size: 32
+  lr: 0.0001
+  weight_decay: 0.01
+  warmup_steps: 200
+
+out:
+  student_dir: checkpoints/student
+  nodistill_dir: checkpoints/student_nodistill

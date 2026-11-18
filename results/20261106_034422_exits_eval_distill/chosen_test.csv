@@ -1,0 +1,10 @@
+false_action_rate,reject_rate,act_rate,acc_when_acted,mean_exit,exit_counts,lambda,policy,act_thresh,split,precision,chosen_on,git_hash,target,machine,os,governor,temp_c
+0.01,0.005,0.995,0.9899497487437185,2.195,"[0, 161, 39]",5,early_reject,0.95,test,fp32 torch,valid,no-git,unknown,AMD64,Windows-11-10.0.26300-SP0,n/a,n/a
+0.015,0.0,1.0,0.985,2.195,"[0, 161, 39]",5,early_noreject,0.95,test,fp32 torch,valid,no-git,unknown,AMD64,Windows-11-10.0.26300-SP0,n/a,n/a
+0.005,0.005,0.995,0.9949748743718593,3.0,"[0, 0, 200]",5,full_reject,0.98,test,fp32 torch,valid,no-git,unknown,AMD64,Windows-11-10.0.26300-SP0,n/a,n/a
+0.01,0.005,0.995,0.9899497487437185,2.155,"[0, 169, 31]",5,early_reject,0.95,test,int8 tflite,valid,no-git,unknown,AMD64,Windows-11-10.0.26300-SP0,n/a,n/a
+0.015,0.0,1.0,0.985,2.155,"[0, 169, 31]",5,early_noreject,0.95,test,int8 tflite,valid,no-git,unknown,AMD64,Windows-11-10.0.26300-SP0,n/a,n/a
+0.01,0.01,0.99,0.98989898989899,3.0,"[0, 0, 200]",5,full_reject,0.98,test,int8 tflite,valid,no-git,unknown,AMD64,Windows-11-10.0.26300-SP0,n/a,n/a
+0.01,0.005,0.995,0.9899497487437185,2.195,"[0, 161, 39]",5,early_reject,0.95,test,fp32 tflite,valid,no-git,unknown,AMD64,Windows-11-10.0.26300-SP0,n/a,n/a
+0.015,0.0,1.0,0.985,2.195,"[0, 161, 39]",5,early_noreject,0.95,test,fp32 tflite,valid,no-git,unknown,AMD64,Windows-11-10.0.26300-SP0,n/a,n/a
+0.005,0.005,0.995,0.9949748743718593,3.0,"[0, 0, 200]",5,full_reject,0.98,test,fp32 tflite,valid,no-git,unknown,AMD64,Windows-11-10.0.26300-SP0,n/a,n/a

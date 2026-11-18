@@ -1,0 +1,20 @@
+export_dir: export
+wakeword_tflite: export/wakeword_int8.tflite
+naive_tflite: export/naive_fp32.tflite
+
+segments:
+  - name: seg1      # frontend + layers 1 to 2 + exit 1 heads
+    layers: [1, 2]
+  - name: seg2      # layer 3 + exit 2 heads
+    layers: [3]
+  - name: seg3      # layer 4 + exit 3 heads
+    layers: [4]
+
+calib:
+  n_samples: 200    # fsc train clips for the representative dataset
+  seed: 0
+
+parity:
+  n_clips: 64
+  min_intent_agreement: 0.95
+  max_abs_diff_fp32: 0.001

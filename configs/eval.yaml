@@ -1,0 +1,9 @@
+seed: 0
+results_dir: results
+latency:
+  warmup: 10
+  runs: 100
+memory:
+  sample_ms: 5
+splits: [valid, test]
+lambdas: [1, 2, 5, 10]

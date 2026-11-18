@@ -1,0 +1,3 @@
+variant,model_kb,accuracy,false_reject_rate,false_accept_clips,false_accepts_per_hour,git_hash,target,machine,os,governor,temp_c
+fp32,70.5078125,0.9804634257155839,0.9435897435897436,0.002867715078630897,0.0,no-git,unknown,AMD64,Windows-11-10.0.26300-SP0,n/a,n/a
+int8,33.1796875,0.9806451612903225,0.9487179487179487,0.0025901942645698427,0.0,no-git,unknown,AMD64,Windows-11-10.0.26300-SP0,n/a,n/a
