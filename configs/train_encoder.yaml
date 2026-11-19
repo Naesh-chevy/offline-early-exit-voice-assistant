@@ -48,9 +48,11 @@ loss:
   decision_weight: 1.0
 
 policy:
-  # thresholds on the decision head probs, tuned on val in the exit ablation
-  act_thresh: [0.9, 0.85, 0.5]
-  reject_thresh: [0.9, 0.9, 0.5]
+  # thresholds on the decision head probs, picked on valid for lambda 10 (src/encoder/eval_exits.py), early exit + reject
+  # same as the early_reject policy there: act at 0.99 everywhere, reject at 0.9 on the early exits
+  # the last reject value is never used, the last exit just acts or rejects
+  act_thresh: [0.99, 0.99, 0.99]
+  reject_thresh: [0.9, 0.9, 1.0]
 
 quads:                # prior method reproduction (src/baselines/quads.py)
   schedule: dqdqdqq   # d = distill epoch, q = k-means quantization epoch, ends with quantization only
