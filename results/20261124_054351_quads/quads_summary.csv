@@ -1,0 +1,2 @@
+bits,val_intent,test_intent,test_action,test_object,test_location,model_mb_codebook,model_mb_fp32,schedule,l1_weight,git_hash,target,machine,os,governor,temp_c
+8,0.8745991019884541,0.9535987345109412,0.9762720801476404,0.9783812285789613,0.9934089111521224,8.038496,30.873696,dqdqdqq,0.1,no-git,unknown,x86_64,Linux-6.6.159+-x86_64-with-glibc2.39,n/a,n/a

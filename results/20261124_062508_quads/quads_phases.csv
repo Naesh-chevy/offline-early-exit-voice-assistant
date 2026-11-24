@@ -1,0 +1,8 @@
+bits,phase,kind,loss,val_intent,git_hash,target,machine,os,governor,temp_c
+4,0,d,1.0430198993384425,0.004169339320076972,no-git,unknown,x86_64,Linux-6.6.159+-x86_64-with-glibc2.39,n/a,n/a
+4,1,q,3.4771624590846018,0.2607440667094291,no-git,unknown,x86_64,Linux-6.6.159+-x86_64-with-glibc2.39,n/a,n/a
+4,2,d,0.810889753285038,0.2642719692110327,no-git,unknown,x86_64,Linux-6.6.159+-x86_64-with-glibc2.39,n/a,n/a
+4,3,q,2.265091340571518,0.39320076972418216,no-git,unknown,x86_64,Linux-6.6.159+-x86_64-with-glibc2.39,n/a,n/a
+4,4,d,0.70851780253657,0.39127645926876203,no-git,unknown,x86_64,Linux-6.6.159+-x86_64-with-glibc2.39,n/a,n/a
+4,5,q,1.7493431685211582,0.49807568954457987,no-git,unknown,x86_64,Linux-6.6.159+-x86_64-with-glibc2.39,n/a,n/a
+4,6,q,1.4147671250057088,0.586914688903143,no-git,unknown,x86_64,Linux-6.6.159+-x86_64-with-glibc2.39,n/a,n/a
